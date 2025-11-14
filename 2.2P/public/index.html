@@ -3,28 +3,63 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SIT 725 Prac 1</title>
-<meta name="description" content="basic template for SIT 725 Prac 1">
-<meta name="author" content="SitePoint">
-<meta property="og:title" content="SIT 725 Prac 1">
-<meta property="og:type" content="website">
-<meta property="og:description" content="basic template for SIT 725 Prac 1">
-<!-- Compiled and minified CSS -->
+<title>SIT 725 Calculator Demo</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
+
 <div class="container">
-<div class="row">
-<div class="col s12">
-<h1 id="heading" class="center-align">SIT 725</h1>
+  <h3 class="center-align">Calculator API Demo</h3>
+
+  <div class="row">
+    <div class="input-field col s6">
+      <input id="num1" type="number" class="validate">
+      <label for="num1">Number 1</label>
+    </div>
+
+    <div class="input-field col s6">
+      <input id="num2" type="number" class="validate">
+      <label for="num2">Number 2</label>
+    </div>
+  </div>
+
+  <div class="center-align">
+    <button class="btn blue" onclick="calculate('add')">Add</button>
+    <button class="btn green" onclick="calculate('sub')">Subtract</button>
+    <button class="btn orange" onclick="calculate('multiply')">Multiply</button>
+    <button class="btn red" onclick="calculate('divide')">Divide</button>
+  </div>
+
+  <h5 class="center-align" style="margin-top: 25px;">
+    Result: <span id="resultDisplay">—</span>
+  </h5>
 </div>
-<div class="col s12 center-align">
-<a class="waves-effect waves-light btn" onclick="changeText()">Change Text</a>
-</div>
-</div>
-</div>
-<!-- Compiled and minified JavaScript -->
+
+<script>
+function calculate(operation) {
+  const num1 = document.getElementById("num1").value;
+  const num2 = document.getElementById("num2").value;
+
+  if (num1 === "" || num2 === "") {
+    document.getElementById("resultDisplay").innerText = "Please enter both numbers!";
+    return;
+  }
+
+  // Build API endpoint
+  const url = `/${operation}?num1=${num1}&num2=${num2}`;
+
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("resultDisplay").innerText = data.result;
+    })
+    .catch(error => {
+      document.getElementById("resultDisplay").innerText = "Error contacting API";
+      console.error(error);
+    });
+}
+</script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="script.js"></script>
 </body>
 </html>

@@ -3,42 +3,80 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-// Serve static files (HTML, CSS, JS) from the "public" folder
+// Middleware
 app.use(express.static('public'));
+app.use(express.json());
 
-// Basic endpoint to test your server
+// Send index.html
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
 });
 
-// Example test endpoint
+// Basic test endpoint
 app.get('/hello', (req, res) => {
   res.send('Hello from Express!');
 });
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
+// -------------------------
+//   CALCULATOR ENDPOINTS
+// -------------------------
 
-
-
-/// GET API endpoint
 app.get('/add', (req, res) => {
   const num1 = parseFloat(req.query.num1);
   const num2 = parseFloat(req.query.num2);
 
   if (isNaN(num1) || isNaN(num2)) {
-    return res.status(400).send('Both num1 and num2 must be numbers');
+    return res.status(400).json({ error: 'Both num1 and num2 must be numbers' });
   }
 
-  const sum = num1 + num2;
-  res.send(`The sum of ${num1} and ${num2} is ${sum}`);
+  const result = num1 + num2;
+  res.json({ result });
 });
 
-//
+app.get('/sub', (req, res) => {
+  const num1 = parseFloat(req.query.num1);
+  const num2 = parseFloat(req.query.num2);
+
+  if (isNaN(num1) || isNaN(num2)) {
+    return res.status(400).json({ error: 'Both num1 and num2 must be numbers' });
+  }
+
+  const result = num1 - num2;
+  res.json({ result });
+});
+
 app.get('/multiply', (req, res) => {
-  const { num1, num2 } = req.query;
-  const result = parseFloat(num1) * parseFloat(num2);
-  res.send(`The product of ${num1} and ${num2} is ${result}`);
+  const num1 = parseFloat(req.query.num1);
+  const num2 = parseFloat(req.query.num2);
+
+  if (isNaN(num1) || isNaN(num2)) {
+    return res.status(400).json({ error: 'Both num1 and num2 must be numbers' });
+  }
+
+  res.json({ result: num1 * num2 });
+});
+
+app.get('/divide', (req, res) => {
+  const num1 = parseFloat(req.query.num1);
+  const num2 = parseFloat(req.query.num2);
+
+  if (isNaN(num1) || isNaN(num2)) {
+    return res.status(400).json({ error: 'Both num1 and num2 must be numbers' });
+  }
+
+  if (num2 === 0) {
+    return res.status(400).json({ error: 'Cannot divide by zero' });
+  }
+
+  res.json({ result: num1 / num2 });
+});
+
+// Health endpoint
+app.get('/health', (req, res) => {
+  res.send('Server is healthy!');
+});
+
+// Start server
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
 });
