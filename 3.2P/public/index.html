@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plant Info Finder</title>
+
+  <!-- Materialize CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <style>
+    body {
+      background: #f0f4f7;
+    }
+    #resultCard {
+      margin-top: 20px;
+      display: none;
+    }
+    #loader {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="green darken-2">
+    <div class="nav-wrapper container">
+      <a href="#" class="brand-logo">🌱 Plant Info Finder</a>
+    </div>
+  </nav>
+
+  <div class="container" style="margin-top: 40px;">
+
+    <h4 class="center-align">Search Plant Information</h4>
+    <p class="center-align grey-text">Enter the name of a plant to find diseases and care tips.</p>
+
+    <!-- Input Field -->
+    <div class="row">
+      <div class="input-field col s10 offset-s1 m6 offset-m3">
+        <i class="material-icons prefix">search</i>
+        <input type="text" id="plantName">
+        <label for="plantName">Type plant name (e.g., tomato, potato, rose)</label>
+      </div>
+    </div>
+
+    <!-- Search Button -->
+    <div class="center-align">
+      <button class="btn-large waves-effect waves-light green" onclick="getPlant()">
+        Search <i class="material-icons right">send</i>
+      </button>
+    </div>
+
+    <!-- Loader -->
+    <div id="loader" class="center-align">
+      <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-green-only">
+          <div class="circle-clipper left"><div class="circle"></div></div>
+          <div class="gap-patch"><div class="circle"></div></div>
+          <div class="circle-clipper right"><div class="circle"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Result Card -->
+    <div id="resultCard" class="card">
+      <div class="card-content">
+        <span id="plantTitle" class="card-title green-text text-darken-3"></span>
+        <p><strong>Disease: </strong><span id="plantDisease"></span></p>
+        <p><strong>Care Tips: </strong><span id="plantCare"></span></p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+
+</body>
+</html>
