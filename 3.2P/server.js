@@ -33,6 +33,7 @@ app.get("/api/plant", (req, res) => {
   res.json(result);
 });
 
+// Start the server
 app.listen(port, () =>
   console.log(`Server running at http://localhost:${port}`)
 );
