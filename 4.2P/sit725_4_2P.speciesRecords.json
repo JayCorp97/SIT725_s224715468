@@ -1,0 +1,30 @@
+[{
+  "_id": {
+    "$oid": "692e4089043816b15e616f6b"
+  },
+  "speciesName": "Silver Gull",
+  "location": "Geelong Waterfront",
+  "confidence": 0.93,
+  "imageUrl": "https://images.pexels.com/photos/1272696/pexels-photo-1272696.jpeg",
+  "timestamp": "2025-12-02T01:46:28.083Z"
+},
+{
+  "_id": {
+    "$oid": "692e4093043816b15e616f6d"
+  },
+  "speciesName": "Rainbow Lorikeet",
+  "location": "Melbourne CBD",
+  "confidence": 0.88,
+  "imageUrl": "https://images.pexels.com/photos/105808/pexels-photo-105808.jpeg",
+  "timestamp": "2025-12-02T01:44:55.061Z"
+},
+{
+  "_id": {
+    "$oid": "692e434084a25b4fd0db8c07"
+  },
+  "speciesName": "Fransisca Gorawach",
+  "location": "Adelaide",
+  "confidence": 0.045,
+  "imageUrl": "https://images.pexels.com/photos/34993054/pexels-photo-34993054.jpeg",
+  "timestamp": "2025-12-02T01:44:26.448Z"
+}]
