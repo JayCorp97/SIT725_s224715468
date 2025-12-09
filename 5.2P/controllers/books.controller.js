@@ -9,7 +9,7 @@ function getBookById(req, res) {
   const book = bookService.getBookById(id);
 
   if (!book) {
-    return res.status(404).json({ message: "Book not found" });
+    return res.status(404).json({ message: "Book not found!" });
   }
 
   res.json(book);
