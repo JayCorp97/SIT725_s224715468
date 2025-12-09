@@ -1,4 +1,4 @@
-Books Catalog – MVC (SIT725 5.2P)
+<h2>Books Catalog – MVC (SIT725 5.2P)</h2>
 
 This project implements a minimal Books Catalog application using the MVC (Model–View–Controller) pattern, following the structure from the SIT725 Week 5 practical.
 
