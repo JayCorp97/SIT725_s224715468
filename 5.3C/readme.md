@@ -1,4 +1,4 @@
-<h2>Books Catalog – MVC (SIT725 5.2P)</h2>
+<h2>Books Catalog – MVC + DATABASE(SIT725 5.3C)</h2>
 
 This project implements a minimal Books Catalog application using the MVC (Model–View–Controller) pattern, following the structure from the SIT725 Week 5 practical.
 
@@ -35,6 +35,7 @@ API endpoints to retrieve all books or a single book by ID
 
 <strong>Book Dataset (In-Memory)</strong>
 
+I have use seed.js
 The following books (exactly as provided in the task) are stored in services/books.service.js:
 
 The Three-Body Problem — Liu Cixin (2008)
