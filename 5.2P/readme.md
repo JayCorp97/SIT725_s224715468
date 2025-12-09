@@ -15,10 +15,22 @@ An in-memory catalog of five predefined books supplied in the task
 API endpoints to retrieve all books or a single book by ID
 
 <strong>API Endpoints</strong>
-Method	Route	Description
-GET	/api/books	Returns all books
-GET	/api/books/:id	Returns a single book by ID
-
+<table>
+  <tr>
+    <th>Method</th>
+    <th>Route</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>GET	/api/books</td>
+    <td>Returns</td>
+    <td>all books</td>
+  <tr>
+    <td>GET	/api/books/:id</td>	 
+    <td>Returns</td>
+    <td>a single book by ID</td>
+  </tr>
+</table>
 
 
 <strong>Book Dataset (In-Memory)</strong>
