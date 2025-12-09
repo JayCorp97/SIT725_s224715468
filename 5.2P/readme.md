@@ -14,14 +14,14 @@ An in-memory catalog of five predefined books supplied in the task
 
 API endpoints to retrieve all books or a single book by ID
 
-API Endpoints
+<strong>API Endpoints</strong>
 Method	Route	Description
 GET	/api/books	Returns all books
 GET	/api/books/:id	Returns a single book by ID
 
 
 
-Book Dataset (In-Memory)
+<strong>Book Dataset (In-Memory)</strong>
 
 The following books (exactly as provided in the task) are stored in services/books.service.js:
 
