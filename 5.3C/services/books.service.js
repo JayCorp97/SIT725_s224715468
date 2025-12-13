@@ -1,11 +1,14 @@
-const Book = require("../models/book.model");
+const Book = require("../models/books.model");
 
 async function getAllBooks() {
-  return await Book.find({});
+  return Book.find({});
 }
 
 async function getBookById(id) {
-  return await Book.findOne({ id: id });
+  return Book.findById(id);
 }
 
-module.exports = { getAllBooks, getBookById };
+module.exports = {
+  getAllBooks,
+  getBookById
+};
