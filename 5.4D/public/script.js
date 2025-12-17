@@ -1,5 +1,3 @@
-// Load nothing at the start.
-// User must click the button.
 
 document.getElementById("get-books-btn").addEventListener("click", loadBooks);
 
