@@ -17,4 +17,21 @@ describe('Calculate Total Cooking Time', () => {
       .to.throw('Invalid input');
   });
 
+  // EDGE CASE: empty array
+  it('should return 0 for an empty array', () => {
+    const result = calculateTotalCookingTime([]);
+    expect(result).to.equal(0);
+  });
+
+  // EDGE CASE: recipe times including zero
+  it('should correctly calculate total when recipe times include zero', () => {
+    const recipes = [
+      { time: 0 },
+      { time: 15 },
+      { time: 0 }
+    ];
+    const result = calculateTotalCookingTime(recipes);
+    expect(result).to.equal(15);
+  });
+
 });

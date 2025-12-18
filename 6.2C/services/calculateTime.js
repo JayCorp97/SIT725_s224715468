@@ -12,4 +12,3 @@ function calculateTotalCookingTime(recipes) {
 }
 
 module.exports = calculateTotalCookingTime;
-
