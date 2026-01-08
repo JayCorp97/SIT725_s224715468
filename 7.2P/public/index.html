@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Real-Time Control Panel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container"> 
+  <h1>Real-Time Random Number Control</h1>
+
+  <div id="number">--</div>
+
+  <div class="controls">
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+    <input type="number" id="speed" value="1000" min="200">
+    <button id="updateSpeed">Change Speed</button>
+  </div>
+
+  <p id="status">Status: Waiting...</p>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+  </div>
+</body>
+</html>
