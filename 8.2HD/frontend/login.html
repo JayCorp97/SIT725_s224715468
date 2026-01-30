@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipe Management System | Login</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/overlay.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+
+<body>
+
+  <div class="login-wrapper">
+    <div class="login-card">
+
+      <h2>Welcome Back 👋</h2>
+      <p class="subtitle">Sign in to manage your recipes</p>
+
+      <!-- Error message -->
+      <div class="error-message" id="error"></div>
+
+      <!-- Info message -->
+      <div class="info-message" id="info"></div>
+
+      <form id="loginForm">
+
+        <div class="input-group">
+          <span class="icon">📧</span>
+          <input type="email" id="email" placeholder="Email Address" required />
+        </div>
+
+        <div class="input-group">
+          <span class="icon">🔒</span>
+          <input type="password" id="password" placeholder="Password" required />
+        </div>
+
+        <div class="remember-me">
+          <label>
+            <input type="checkbox" id="rememberEmail" />
+            Remember my email
+          </label>
+        </div>
+
+        <!-- STEP 1 -->
+        <button type="submit" class="login-btn" id="loginBtn">
+          Login
+        </button>
+
+        <!-- STEP 2: Send OTP -->
+        <button type="button" class="login-btn" id="sendOtpBtn" style="display:none;">
+          Send OTP
+        </button>
+
+        <button type="button" class="login-btn" id="enterOtpBtn" style="display:none;">
+          Enter OTP
+        </button>
+
+      </form>
+
+      <p class="register-text">
+        New here? <a href="register.html">Create an account</a>
+      </p>
+
+    </div>
+  </div>
+
+  <!-- OTP Overlay -->
+  <div class="overlay" id="otpOverlay">
+    <div class="dialog">
+      <!-- <span class="close-btn" onclick="closeOverlay()">&times;</span> -->
+      <h2>Enter OTP</h2>
+
+      <!-- Error message -->
+      <div class="error-message" id="errorOtp"></div>
+
+      <!-- Countdown timer -->
+      <div id="otpTimer" style="margin-bottom: 20px; font-weight: 600; color: #FF9800;">
+        02:00
+      </div>
+
+      <div class="input-group">
+        <input type="text" placeholder="Enter OTP" id="otp" maxlength="6" style="text-align: center;" required />
+      </div>
+
+      <button type="button" class="login-btn" id="verifyOtpBtn">
+        Verify OTP
+      </button>
+      <div class="otp-btn-group" style="display: flex; gap: 10px; margin-top: 10px;">
+        <button type="button" class="login-btn" id="resendOtpBtn" style="flex:1; background-color:#757575;">
+          Resend OTP
+        </button>
+        <button type="button" class="login-btn" id="backLgnBtn" onclick="closeOverlay()" style="flex:1; background-color:#0e4b74;">
+          Back To Login
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- External JS -->
+  <script src="js/login.js"></script>
+</body>
+</html>

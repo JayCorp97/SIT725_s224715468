@@ -1,0 +1,15 @@
+# .dockerignore
+
+# Ignore node_modules (we'll install dependencies in the container)
+node_modules/
+
+# Ignore logs and debug files
+npm-debug.log
+
+# Ignore MongoDB data (handled by Docker volumes)
+mongo-data/
+
+# Ignore Git metadata (not needed for build)
+.git/
+
+# Keep .env for Docker build, don't exclude it
