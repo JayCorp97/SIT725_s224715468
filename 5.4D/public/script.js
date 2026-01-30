@@ -20,7 +20,7 @@ function loadBooks() {
           <div>AUD $${price}</div>
         `;
 
-        // IMPORTANT: clicking book fetches full details
+        // clicking book fetches full details
         card.addEventListener("click", () => loadBookDetails(book._id));
 
         list.appendChild(card);

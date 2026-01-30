@@ -8,7 +8,6 @@ router.get("/api/books/:id", controller.getBookById);
 router.post("/api/books", controller.createBook);
 router.put("/api/books/:id", controller.updateBook);
 
-
 router.get("/api/integrity-check42", (req, res) => res.status(204).send());
 
 
