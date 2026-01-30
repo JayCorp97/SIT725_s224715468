@@ -1,4 +1,4 @@
-# Recipe Management System with Docker
+# Recipe Management System with DOCKER: END-TO-END APPLICATION DEPLOYMENT
 
 ## Overview
 
@@ -36,15 +36,18 @@ Clone the repository to your local machine:
 ```bash
 git clone <repository-url>
 cd Recipe-Management-System
+```
 
-Configuration
+## Configuration
 
 All configurations (such as environment variables, port mappings, and services) are pre-configured in the docker-compose.yml file. No additional manual setup is required!
 Building and Running the Containers
 
 Once the repository is cloned, run the following command to build and start the application:
 
+```bash
 docker-compose up --build
+```
 
 This will:
 
@@ -63,24 +66,42 @@ Subsequent runs: Use docker-compose up (faster, uses cached images).
 
 To run the containers in the background, use:
 
+```bash
 docker-compose up -d
+```
 
-Stopping the Application
+### Stopping the Application
 
-To stop the containers, run:
+When You Want to Stop Containers Without Losing Data:
 
+```bash
 docker-compose down
+```
 
-To also remove volumes (including the database data), run:
+When You Want to Clean Up, But Keep Data:
 
+```bash
 docker-compose down -v
+```
 
-Accessing the Application
+When You Want to Completely Clean Up (Including Volumes, Images, and Networks):
+
+```bash
+docker-compose down --rmi all -v
+```
+
+### Accessing the Application
 Frontend Application
+
+    URL: http://localhost:8080
+
+    The frontend can be accessed via the browser at this URL.
+
+Backend Application
 
     URL: http://localhost:5000
 
-    The frontend can be accessed via the browser at this URL.
+    The backend can be accessed via the browser at this URL.
 
 Student Identity Endpoint
 
@@ -90,18 +111,20 @@ Student Identity Endpoint
 
     Response:
 
+  ```bash
     {
-      "name": "Anushi Amarasinghe",
-      "studentId": "s224727365"
+      "name": "JANITHA JAYASANKA BOMIRIYA",
+      "studentId": "s224715468"
     }
+  ```
 
-MongoDB Database
+### MongoDB Database
 
     Connection String: mongodb://localhost:27017/recipes_db
 
     Port: 27017 (default MongoDB port)
 
-Configuration
+## Configuration
 Environment Variables
 
 Configuration is managed through the docker-compose.yml file. Below are the key environment variables:
@@ -120,9 +143,9 @@ Sensitive Information
 
     Default values are provided in docker-compose.yml for easy testing.
 
-Project Structure
+## Project Structure
 
-Recipe-Management-System/
+8.2HD/
 ├── backend/                 # Node.js backend application
 │   ├── Dockerfile           # Docker image build instructions for backend
 │   ├── .dockerignore        # Files excluded from Docker build
@@ -133,34 +156,42 @@ Recipe-Management-System/
 │   └── ...
 ├── frontend/                # Static HTML/CSS/JS frontend
 │   ├── Dockerfile           # Docker image build instructions for frontend
-│   ├── .dockerignore        # Files excluded from frontend Docker build
-│   ├── index.html           # Frontend HTML file
+│   ├── pages/               # app navigation pages
+│   ├── login.html           # Frontend HTML file
+│   ├── nginx.conf           # frontend nginx configuaration file
 │   └── ...
 ├── docker-compose.yml       # Multi-container orchestration
 ├── README.md                # This file
+├── .dockerignore            # Files excluded from frontend Docker build
 
 Testing the Application
 1. Verify Running Containers
 
-Check if the containers are running:
+Check if the containers are running(Under Names):
 
+```bash
 docker ps
+```
 
 You should see two containers:
 
-    recipe-mongodb (MongoDB)
+    82hd-frontend
 
-    recipe-backend (Node.js application)
+    82hd-backend
+
+    mongo (MongoDB)
 
 2. Test the /api/student Endpoint
 
 Open your browser or use curl to test the student identity endpoint:
-
+```bash
 curl http://localhost:5000/api/student
-
+```
 Expected response:
 
-{"name":"Anushi Amarasinghe","studentId":"s224727365"}
+```bash
+  {"name":"JANITHA JAYASANKA BOMIRIYA","studentId":"s224715468"}
+```
 
 3. Test the Web Application
 
@@ -168,20 +199,21 @@ Expected response:
 
     Register a new user account.
 
-    Log in with your credentials.
+    Log in with user credentials.
 
-    Create a recipe to test the database functionality.
+    do changes to test the database functionality.
 
     Ensure that all features (user registration, login, recipe creation, etc.) work correctly.
 
 4. Check Logs
 
-To view the logs for the backend or MongoDB containers, run:
+To view the logs for the frontend, backend or MongoDB containers, run:
 
+docker-compose logs frontend
 docker-compose logs backend
 docker-compose logs mongodb
 
-Docker Architecture
+## Docker Architecture
 
 This application uses a multi-container setup:
 
@@ -199,11 +231,4 @@ This application uses a multi-container setup:
 
         ./backend/uploads: Stores recipe images.
 
-
-### Key Changes:
-1. **Frontend Dockerfile**: The `frontend/Dockerfile` is now mentioned, and the README explains how both the backend and frontend are built and run using Docker.
-2. **Frontend and Backend Services**: Both services (frontend and backend) are described in the context of Docker containers, with references to the appropriate Dockerfiles.
-3. **Access Point**: The `http://localhost:5000` URL is now consistently used as the point for accessing the web application and API.
-
-You can copy this updated `README.md` into your project now. Let me know if you need further changes or clarifications! 😊
 
