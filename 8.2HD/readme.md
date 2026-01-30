@@ -1,14 +1,16 @@
-# Recipe Management System with DOCKER: END-TO-END APPLICATION DEPLOYMENT
+# Recipe Management System with DOCKER: End-To-End Application Deployment
 
 ## Overview
 
-This project contains a fully containerized Recipe Management System that was built as part of the SIT725 High Distinction (HD) task. The application consists of a Node.js backend, a MongoDB database, and a static HTML/CSS/JS frontend, all running in separate Docker containers.
+This project involves containerizing a Recipe Management System as part of the SIT725 High Distinction (HD) task. The goal was to build a fully containerized web application that integrates a Node.js backend, MongoDB for database storage, and a static HTML/CSS/JS frontend. The entire application is Dockerized and runs end-to-end with all components in separate containers, ensuring proper functionality and secure integration.
 
-### Key Features
+### Key Achievements:
 
-- **Full Dockerization**: Backend, frontend, and MongoDB database all run in Docker containers.
-- **Database Integration**: MongoDB runs in a container, and the backend successfully connects to it.
-- **Student Identity Endpoint**: The `/api/student` endpoint returns the student’s name and ID.
+*Dockerized Complete Application: Backend, frontend, and MongoDB database are all containerized.
+
+*Database Integration: MongoDB runs within a container and connects seamlessly to the backend.
+
+*Student Identity Endpoint: The /api/student route provides the student's name and ID as a JSON response, fulfilling the task's requirement to embed student identity.
 
 ---
 
@@ -144,7 +146,7 @@ Sensitive Information
     Default values are provided in docker-compose.yml for easy testing.
 
 ## Project Structure
-
+```
 8.2HD/
 ├── backend/                 # Node.js backend application
 │   ├── Dockerfile           # Docker image build instructions for backend
@@ -163,6 +165,8 @@ Sensitive Information
 ├── docker-compose.yml       # Multi-container orchestration
 ├── README.md                # This file
 ├── .dockerignore            # Files excluded from frontend Docker build
+```
+---
 
 Testing the Application
 1. Verify Running Containers
