@@ -199,7 +199,7 @@ Expected response:
 
 3. Test the Web Application
 
-    Open http://localhost:5000 in your browser.
+    Open http://localhost:8080 in your browser.
 
     Register a new user account.
 
