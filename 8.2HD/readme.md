@@ -153,6 +153,7 @@ Sensitive Information
 │   ├── .dockerignore        # Files excluded from Docker build
 │   ├── server.js            # Application entry point
 │   ├── app.js               # Express app configuration
+│   ├── uploads/             # user uploads
 │   ├── routes/              # API routes (including /api/student)
 │   ├── models/              # MongoDB models
 │   └── ...
@@ -160,11 +161,13 @@ Sensitive Information
 │   ├── Dockerfile           # Docker image build instructions for frontend
 │   ├── pages/               # app navigation pages
 │   ├── login.html           # Frontend HTML file
+│   ├── images/              # app images icluding favicon
 │   ├── nginx.conf           # frontend nginx configuaration file
 │   └── ...
 ├── docker-compose.yml       # Multi-container orchestration
 ├── README.md                # This file
 ├── .dockerignore            # Files excluded from frontend Docker build
+└── ...
 ```
 ---
 
