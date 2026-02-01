@@ -6,11 +6,11 @@ This project involves containerizing a Recipe Management System as part of the S
 
 ### Key Achievements:
 
-*Dockerized Complete Application: Backend, frontend, and MongoDB database are all containerized.
+**Dockerized Complete Application:** Backend, frontend, and MongoDB database are all containerized.
 
-*Database Integration: MongoDB runs within a container and connects seamlessly to the backend.
+**Database Integration:** MongoDB runs within a container and connects seamlessly to the backend.
 
-*Student Identity Endpoint: The /api/student route provides the student's name and ID as a JSON response, fulfilling the task's requirement to embed student identity.
+**Student Identity Endpoint:** The /api/student route provides the student's name and ID as a JSON response, fulfilling the task's requirement to embed student identity.
 
 ---
 
@@ -269,5 +269,8 @@ flowchart TB
         mongodb_data: Persistent storage for MongoDB data.
 
         ./backend/uploads: Stores recipe images.
+
+ 
+        
 
 
