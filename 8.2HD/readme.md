@@ -223,10 +223,11 @@ Expected response:
 
 To view the logs for the frontend, backend or MongoDB containers, run:
 
+```bash
 docker-compose logs frontend
 docker-compose logs backend
 docker-compose logs mongodb
-
+```
 ## Docker Architecture
 
 This application uses a multi-container setup:
@@ -238,6 +239,15 @@ This application uses a multi-container setup:
     Frontend Container: Serves static HTML/CSS/JS frontend from the frontend container.
 
     Network: Both containers are on the recipe-network for service discovery.
+
+    flowchart LR
+    Browser[Web Browser / UI] --> FE[Frontend Container\n(82hd-frontend)]
+    FE --> BE[Backend Container\n(82hd-backend)]
+    BE --> DB[MongoDB Container\n(mongo:6)]
+    FE --- Network[Docker Network]
+    BE --- Network
+    DB --- Network
+
 
     Volumes:
 
