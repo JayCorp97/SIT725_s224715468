@@ -185,6 +185,12 @@ You should see two containers:
 
     mongo (MongoDB)
 
+2. Backend working response
+
+    Open http://localhost:5000 in your browser.
+
+    ![backend run](images/ss/backend_ui.png)
+
 2. Test the /api/student Endpoint
 
 Open your browser or use curl to test the student identity endpoint:
@@ -196,10 +202,11 @@ Expected response:
 ```bash
   {"name":"JANITHA JAYASANKA BOMIRIYA","studentId":"s224715468"}
 ```
+![student run](images/ss/student_api_ui.png)
 
 3. Test the Web Application
 
-    Open http://localhost:8080 in your browser.
+    Open http://localhost:3000 in your browser.
 
     Register a new user account.
 
@@ -208,6 +215,8 @@ Expected response:
     do changes to test the database functionality.
 
     Ensure that all features (user registration, login, recipe creation, etc.) work correctly.
+
+    ![frontend run](images/ss/frontend_ui.png)
 
 4. Check Logs
 

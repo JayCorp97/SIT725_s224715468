@@ -35,7 +35,7 @@ node test-runner.js
 
 **Or use npm:**
 ```bash
-npm test                    # Same as: node test-runner.js
+npm test                   # Same as: node test-runner.js
 npm run test:watch         # Run tests and watch for changes
 npm run test:integration   # Run only integration tests
 npm run test:coverage      # Run tests with coverage report
@@ -109,4 +109,7 @@ npm run test:coverage      # Run tests with coverage report
 3. Make sure `JWT_SECRET` is set in `.env`
 4. Try running `npm install` again
 
-**Wrote by**: Anushi 
+##Quick Check
+```bash
+node test-api.js
+```
