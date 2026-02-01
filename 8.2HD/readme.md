@@ -240,11 +240,23 @@ This application uses a multi-container setup:
 
     Network: Both containers are on the recipe-network for service discovery.
 
-    flowchart LR
-    Browser[Web Browser / UI] --> FE[Frontend Container\n(82hd-frontend)]
-    FE --> BE[Backend Container\n(82hd-backend)]
-    BE --> DB[MongoDB Container\n(mongo:6)]
-    FE --- Network[Docker Network]
+flowchart TB
+    subgraph Browser
+        UI[Web Browser / Client]
+    end
+
+    subgraph Docker
+        FE[Frontend Container\n82hd-frontend\nPort: 3000] 
+        BE[Backend Container\n82hd-backend\nPort: 5000] 
+        DB[MongoDB Container\nmongo:6\nPort: 27017\nVolume: mongo-data]
+        Network[Docker Network]
+    end
+
+    UI --> FE
+    FE --> BE
+    BE --> DB
+
+    FE --- Network
     BE --- Network
     DB --- Network
 
