@@ -166,7 +166,7 @@ Sensitive Information
 │   └── ...
 ├── docker-compose.yml       # Multi-container orchestration
 ├── README.md                # This file
-├── .dockerignore            # Files excluded from frontend Docker build
+├── .dockerignore            # Files excludeds for Docker build
 └── ...
 ```
 ---
