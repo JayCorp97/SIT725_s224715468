@@ -189,7 +189,7 @@ You should see two containers:
 
     Open http://localhost:5000 in your browser.
 
-    ![backend run](images/ss/backend_ui.png)
+    ![backend run](frontend/images/ss/backend_ui.png)
 
 2. Test the /api/student Endpoint
 
@@ -202,7 +202,8 @@ Expected response:
 ```bash
   {"name":"JANITHA JAYASANKA BOMIRIYA","studentId":"s224715468"}
 ```
-![student run](images/ss/student_api_ui.png)
+
+![student run](frontend/images/ss/student_api_ui.png)
 
 3. Test the Web Application
 
@@ -216,7 +217,7 @@ Expected response:
 
     Ensure that all features (user registration, login, recipe creation, etc.) work correctly.
 
-    ![frontend run](images/ss/frontend_ui.png)
+    ![frontend run](frontend/images/ss/frontend_ui.png)
 
 4. Check Logs
 
