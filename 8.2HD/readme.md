@@ -240,6 +240,7 @@ This application uses a multi-container setup:
 
     Network: Both containers are on the recipe-network for service discovery.
 
+```mermaid
 flowchart TB
     subgraph Browser
         UI[Web Browser / Client]
@@ -259,7 +260,9 @@ flowchart TB
     FE --- Network
     BE --- Network
     DB --- Network
+```
 
+---
 
     Volumes:
 
