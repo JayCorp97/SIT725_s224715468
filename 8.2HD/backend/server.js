@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 5000;
     console.log("Database connected");
 
     app.listen(PORT, () => {
+      
       console.log(`Server running on http://localhost:${PORT}..`);
     });
   } catch (e) {

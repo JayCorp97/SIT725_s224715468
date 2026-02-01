@@ -52,9 +52,9 @@ function getIO() {
 function emitActivity(activity) {
   if (io) {
     io.to("activity-feed").emit("new-activity", activity);
-    console.log(`📡 Emitted activity: ${activity.userName} ${activity.action} "${activity.recipeTitle}"`);
+    console.log(`Emitted activity: ${activity.userName} ${activity.action} "${activity.recipeTitle}"`);
   } else {
-    console.warn("⚠️ Socket.IO not initialized, cannot emit activity");
+    console.warn("Socket.IO not initialized, cannot emit activity");
   }
 }
 

@@ -95,7 +95,7 @@ docker-compose down --rmi all -v
 ### Accessing the Application
 Frontend Application
 
-    URL: http://localhost:8080
+    URL: http://localhost:3000
 
     The frontend can be accessed via the browser at this URL.
 

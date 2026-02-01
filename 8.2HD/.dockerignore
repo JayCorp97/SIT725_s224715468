@@ -11,5 +11,3 @@ mongo-data/
 
 # Ignore Git metadata (not needed for build)
 .git/
-
-# Keep .env for Docker build, don't exclude it
