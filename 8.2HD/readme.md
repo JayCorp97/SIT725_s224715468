@@ -37,7 +37,7 @@ Clone the repository to your local machine:
 
 ```bash
 git clone <repository-url>
-cd Recipe-Management-System
+cd 8.2HD
 ```
 
 ## Configuration
