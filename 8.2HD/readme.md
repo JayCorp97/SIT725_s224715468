@@ -15,41 +15,43 @@ docker --version
 docker-compose --version
 ```
 
-Setup
+### Setup
 
-Clone repo:
+**Clone repo:**
 
-git clone <repository-url>
-cd 8.2HD
+git clone [<repository-url>](https://github.com/JayCorp97/SIT725_s224715468.git)
+> cd 8.2HD
 
-Run app:
+**Run app:**
+
 ```bash
 docker-compose up --build       # first run
 docker-compose up               # subsequent runs
 docker-compose up -d            # background
 ```
 
-Stop / clean:
+**Stop / clean:**
+
 ```bash
 docker-compose down             # stop
 docker-compose down -v          # stop + volumes
 docker-compose down --rmi all -v  # full cleanup
 ```
-Access
+### Access
 
-Frontend: http://localhost:3000
+- Frontend: http://localhost:3000
 
-Backend: http://localhost:5000
+- Backend: http://localhost:5000
 
-Student API: http://localhost:5000/api/student
+- Student API: http://localhost:5000/api/student
 
 ```bash
 {"name":"JANITHA JAYASANKA BOMIRIYA","studentId":"s224715468"}
 ```
 
-MongoDB: mongodb://localhost:27017/recipe-management
+- MongoDB: mongodb://localhost:27017/recipe-management
 
-onfiguration
+### Configuration
 
 All in docker-compose.yml:
 
@@ -69,7 +71,7 @@ Project Structure
 ├── README.md
 └── ...
 
-Testing
+### Testing
 
 ```bash
 docker ps                       # verify containers
@@ -83,7 +85,7 @@ Check frontend: http://localhost:3000
 
 Check backend: http://localhost:5000
 
-Docker Architecture
+### Docker Architecture
 
 MongoDB Container → data in mongodb_data
 
@@ -100,7 +102,7 @@ flowchart TB
     BE --> DB[MongoDB Container]
 ```
 
-Volumes:
+### Volumes:
 
 mongodb_data → MongoDB persistence
 
