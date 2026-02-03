@@ -1,279 +1,111 @@
-# Recipe Management System with DOCKER: End-To-End Application Deployment
+# Recipe Management System with Docker
 
 ## Overview
-
-This project involves containerizing a Recipe Management System as part of the SIT725 High Distinction (HD) task. The goal was to build a fully containerized web application that integrates a Node.js backend, MongoDB for database storage, and a static HTML/CSS/JS frontend. The entire application is Dockerized and runs end-to-end with all components in separate containers, ensuring proper functionality and secure integration.
-
-### Key Achievements:
-
-- **Dockerized Complete Application:** Backend, frontend, and MongoDB database are all containerized.
-
-- **Database Integration:** MongoDB runs within a container and connects seamlessly to the backend.
-
-- **Student Identity Endpoint:** The /api/student route provides the student's name and ID as a JSON response, fulfilling the task's requirement to embed student identity.
+Fully Dockerized Recipe Management System with Node.js backend, MongoDB, and static HTML/CSS/JS frontend.  
+**Features:** Backend, frontend, MongoDB in containers; `/api/student` endpoint for student info.
 
 ---
 
 ## Prerequisites
-
-Before you run the application, ensure that you have the following installed:
-
-- **Docker Desktop** (or Docker Engine + Docker Compose)
-  - [Install Docker Desktop](https://www.docker.com/products/docker-desktop)
-  - For Windows, ensure that **WSL2** is enabled.
-  - Verify the installation with:
-    ```bash
-    docker --version
-    docker-compose --version
-    ```
-
----
-
-## Setting Up the Application
-
-### Clone the Repository
-
-Clone the repository to your local machine:
-
+- **Docker Desktop** (or Docker Engine + Docker Compose)  
+- Windows: enable **WSL2**  
+- Verify:
 ```bash
+docker --version
+docker-compose --version
+```
+
+Setup
+
+Clone repo:
+
 git clone <repository-url>
 cd 8.2HD
+
+Run app:
+```bash
+docker-compose up --build       # first run
+docker-compose up               # subsequent runs
+docker-compose up -d            # background
 ```
 
-## Configuration
+Stop / clean:
+```bash
+docker-compose down             # stop
+docker-compose down -v          # stop + volumes
+docker-compose down --rmi all -v  # full cleanup
+```
+Access
 
-All configurations (such as environment variables, port mappings, and services) are pre-configured in the docker-compose.yml file. No additional manual setup is required!
-Building and Running the Containers
+Frontend: http://localhost:3000
 
-Once the repository is cloned, run the following command to build and start the application:
+Backend: http://localhost:5000
+
+Student API: http://localhost:5000/api/student
 
 ```bash
-docker-compose up --build
+{"name":"JANITHA JAYASANKA BOMIRIYA","studentId":"s224715468"}
 ```
 
-This will:
+MongoDB: mongodb://localhost:27017/recipe-management
 
-    Build the backend image using the backend/Dockerfile.
+onfiguration
 
-    Build the frontend image using the frontend/Dockerfile.
+All in docker-compose.yml:
 
-    Pull the MongoDB 7.0 image.
+PORT=5000
 
-    Initialize the MongoDB container first, followed by the backend container.
+MONGO_URI=mongodb://mongodb:27017/recipe-management
 
-    The application will be accessible at http://localhost:5000.
+JWT_SECRET=supersecretkey
 
-First run: It may take a few minutes to build images and download dependencies.
-Subsequent runs: Use docker-compose up (faster, uses cached images).
+NODE_ENV=production
 
-To run the containers in the background, use:
-
-```bash
-docker-compose up -d
-```
-
-### Stopping the Application
-
-When You Want to Stop Containers Without Losing Data:
-
-```bash
-docker-compose down
-```
-
-When You Want to Clean Up, But Keep Data:
-
-```bash
-docker-compose down -v
-```
-
-When You Want to Completely Clean Up (Including Volumes, Images, and Networks):
-
-```bash
-docker-compose down --rmi all -v
-```
-
-### Accessing the Application
-Frontend Application
-
-    URL: http://localhost:3000
-
-    The frontend can be accessed via the browser at this URL.
-
-Backend Application
-
-    URL: http://localhost:5000
-
-    The backend can be accessed via the browser at this URL.
-
-Student Identity Endpoint
-
-    URL: http://localhost:5000/api/student
-
-    Method: GET
-
-    Response:
-
-  ```bash
-    {
-      "name": "JANITHA JAYASANKA BOMIRIYA",
-      "studentId": "s224715468"
-    }
-  ```
-
-### MongoDB Database
-
-    Connection String: mongodb://localhost:27017/recipes_db
-
-    Port: 27017 (default MongoDB port)
-
-## Configuration
-Environment Variables
-
-Configuration is managed through the docker-compose.yml file. Below are the key environment variables:
-
-    PORT: 5000 (inside the container)
-
-    MONGO_URI: mongodb://mongodb:27017/recipes_db (connects to MongoDB container)
-
-    JWT_SECRET: supersecretkey (default, can be overridden for production)
-
-    NODE_ENV: production
-
-Sensitive Information
-
-    No sensitive information is hard-coded in the repository.
-
-    Default values are provided in docker-compose.yml for easy testing.
-
-## Project Structure
-```
+Project Structure
 8.2HD/
-├── backend/                 # Node.js backend application
-│   ├── Dockerfile           # Docker image build instructions for backend
-│   ├── .dockerignore        # Files excluded from Docker build
-│   ├── server.js            # Application entry point
-│   ├── app.js               # Express app configuration
-│   ├── uploads/             # user uploads
-│   ├── routes/              # API routes (including /api/student)
-│   ├── models/              # MongoDB models
-│   └── ...
-├── frontend/                # Static HTML/CSS/JS frontend
-│   ├── Dockerfile           # Docker image build instructions for frontend
-│   ├── pages/               # app navigation pages
-│   ├── login.html           # Frontend HTML file
-│   ├── images/              # app images icluding favicon
-│   ├── nginx.conf           # frontend nginx configuaration file
-│   └── ...
-├── docker-compose.yml       # Multi-container orchestration
-├── README.md                # This file
-├── .dockerignore            # Files excludeds for Docker build
+├── backend/      # Node.js app, APIs, Dockerfile
+├── frontend/     # HTML/CSS/JS, Dockerfile, nginx.conf
+├── docker-compose.yml
+├── README.md
 └── ...
-```
----
 
-Testing the Application
-1. Verify Running Containers
-
-Check if the containers are running(Under Names):
+Testing
 
 ```bash
-docker ps
-```
-
-You should see two containers:
-
-    82hd-frontend
-
-    82hd-backend
-
-    mongo (MongoDB)
-
-2. Backend working response
-
-    Open http://localhost:5000 in your browser.
-
-    ![backend run](frontend/images/ss/backend_ui.png)
-
-2. Test the /api/student Endpoint
-
-Open your browser or use curl to test the student identity endpoint:
-```bash
+docker ps                       # verify containers
 curl http://localhost:5000/api/student
-```
-Expected response:
-
-```bash
-  {"name":"JANITHA JAYASANKA BOMIRIYA","studentId":"s224715468"}
-```
-
-![student run](frontend/images/ss/student_api_ui.png)
-
-3. Test the Web Application
-
-    Open http://localhost:3000 in your browser.
-
-    Register a new user account.
-
-    Log in with user credentials.
-
-    do changes to test the database functionality.
-
-    Ensure that all features (user registration, login, recipe creation, etc.) work correctly.
-
-    ![frontend run](frontend/images/ss/frontend_ui.png)
-
-4. Check Logs
-
-To view the logs for the frontend, backend or MongoDB containers, run:
-
-```bash
 docker-compose logs frontend
 docker-compose logs backend
 docker-compose logs mongodb
 ```
-## Docker Architecture
 
-This application uses a multi-container setup:
+Check frontend: http://localhost:3000
 
-    MongoDB Container: Runs MongoDB 7.0 with data persisted in the mongodb_data volume.
+Check backend: http://localhost:5000
 
-    Backend Container: Runs the Node.js application, serving the frontend and connecting to MongoDB.
+Docker Architecture
 
-    Frontend Container: Serves static HTML/CSS/JS frontend from the frontend container.
+MongoDB Container → data in mongodb_data
 
-    Network: Both containers are on the recipe-network for service discovery.
+Backend Container → Node.js app
+
+Frontend Container → static frontend
+
+Network → recipe-network
 
 ```mermaid
 flowchart TB
-    subgraph Browser
-        UI[Web Browser / Client]
-    end
-
-    subgraph Docker
-        FE[Frontend Container\n82hd-frontend\nPort: 3000] 
-        BE[Backend Container\n82hd-backend\nPort: 5000] 
-        DB[MongoDB Container\nmongo:6\nPort: 27017\nVolume: mongo-data]
-        Network[Docker Network]
-    end
-
-    UI --> FE
-    FE --> BE
-    BE --> DB
-
-    FE --- Network
-    BE --- Network
-    DB --- Network
+    Browser --> FE[Frontend Container]
+    FE --> BE[Backend Container]
+    BE --> DB[MongoDB Container]
 ```
 
+Volumes:
+
+mongodb_data → MongoDB persistence
+
+./backend/uploads → recipe images
+
+
 ---
-
-    Volumes:
-
-        mongodb_data: Persistent storage for MongoDB data.
-
-        ./backend/uploads: Stores recipe images.
-
- 
-        
-
 
